@@ -67,7 +67,7 @@ const advantages = [
 
 export default function HemisIntegration() {
   return (
-    <section id="hemis" className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section id="hemis" className="relative overflow-hidden bg-white py-12 sm:py-16 md:py-24">
       {/* Background decoration */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/3 blur-[150px]" />
 
@@ -90,9 +90,9 @@ export default function HemisIntegration() {
         </AnimateIn>
 
         {/* Sync diagram */}
-        <div className="mt-14 grid gap-8 lg:grid-cols-5">
+        <div className="mt-10 grid gap-6 sm:mt-14 sm:gap-8 md:grid-cols-5 lg:grid-cols-5">
           {/* Left: LMS block */}
-          <AnimateIn direction="left" delay={0.1} className="lg:col-span-1">
+          <AnimateIn direction="left" delay={0.1} className="md:col-span-1 lg:col-span-1">
             <motion.div
               className="flex h-full flex-col items-center justify-center rounded-2xl border border-accent/20 bg-gradient-to-b from-accent/5 to-accent/10 p-6 shadow-lg shadow-accent/5"
               whileHover={{ scale: 1.03 }}
@@ -117,7 +117,7 @@ export default function HemisIntegration() {
           </AnimateIn>
 
           {/* Middle: sync items */}
-          <StaggerContainer className="lg:col-span-3" stagger={0.08} delay={0.2}>
+          <StaggerContainer className="md:col-span-3 lg:col-span-3" stagger={0.08} delay={0.2}>
             <div className="grid gap-3 sm:grid-cols-2">
               {syncItems.map((item, i) => (
                 <StaggerItem key={item.label + item.desc}>
@@ -143,7 +143,7 @@ export default function HemisIntegration() {
           </StaggerContainer>
 
           {/* Right: HEMIS block */}
-          <AnimateIn direction="right" delay={0.1} className="lg:col-span-1">
+          <AnimateIn direction="right" delay={0.1} className="md:col-span-1 lg:col-span-1">
             <motion.div
               className="flex h-full flex-col items-center justify-center rounded-2xl border border-primary/20 bg-gradient-to-b from-primary/5 to-primary/10 p-6 shadow-lg shadow-primary/5"
               whileHover={{ scale: 1.03 }}
@@ -169,13 +169,13 @@ export default function HemisIntegration() {
         </div>
 
         {/* Arrows indicator for mobile */}
-        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-medium text-neutral-400 lg:hidden">
+        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-medium text-neutral-400 md:hidden">
           <ArrowLeftRight size={16} />
           Real-time sinxronizatsiya
         </div>
 
         {/* Advantages */}
-        <StaggerContainer className="mt-14 grid gap-6 sm:grid-cols-3" stagger={0.12} delay={0.1}>
+        <StaggerContainer className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 sm:grid-cols-2 md:grid-cols-3" stagger={0.12} delay={0.1}>
           {advantages.map((adv) => (
             <StaggerItem key={adv.title}>
               <CardSpotlight className="group rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-6 shadow-md shadow-neutral-200/30">

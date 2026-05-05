@@ -77,7 +77,7 @@ const stats = [
 
 export default function Implementation() {
   return (
-    <section id="implementation" className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section id="implementation" className="relative overflow-hidden bg-white py-12 sm:py-16 md:py-24">
       {/* Background decoration */}
       <div className="pointer-events-none absolute top-1/3 right-0 h-[500px] w-[500px] rounded-full bg-accent/3 blur-[150px]" />
 
@@ -101,7 +101,7 @@ export default function Implementation() {
         </AnimateIn>
 
         {/* Stats row */}
-        <StaggerContainer className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6" stagger={0.08}>
+        <StaggerContainer className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-4 md:grid-cols-4 md:gap-6" stagger={0.08}>
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
               <CardSpotlight className="rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-5 text-center shadow-md shadow-neutral-200/30">
@@ -128,9 +128,9 @@ export default function Implementation() {
         </StaggerContainer>
 
         {/* Main content grid */}
-        <div className="mt-14 grid gap-8 lg:grid-cols-5">
+        <div className="mt-10 grid gap-6 sm:mt-14 sm:gap-8 md:grid-cols-5">
           {/* Timeline — left side, 2 cols */}
-          <AnimateIn direction="left" className="lg:col-span-2">
+          <AnimateIn direction="left" className="md:col-span-2">
             <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-primary-dark to-primary p-6 shadow-2xl sm:p-8">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 shadow-inner">
@@ -182,7 +182,7 @@ export default function Implementation() {
           </AnimateIn>
 
           {/* Support + Customization — right side, 3 cols */}
-          <div className="space-y-8 lg:col-span-3">
+          <div className="space-y-6 sm:space-y-8 md:col-span-3">
             {/* 1 year support */}
             <AnimateIn direction="right" delay={0.1}>
               <div className="rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-6 shadow-lg shadow-neutral-200/30 sm:p-8">

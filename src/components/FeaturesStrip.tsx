@@ -68,7 +68,7 @@ export default function FeaturesStrip() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="features" className="relative overflow-hidden border-t border-neutral-200/50 bg-neutral-50 py-14 sm:py-20">
+    <section id="features" className="relative overflow-hidden border-t border-neutral-200/50 bg-neutral-50 py-10 sm:py-14 md:py-20">
       {/* Subtle background decoration */}
       <div className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-accent/3 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-primary/3 blur-[100px]" />
@@ -95,14 +95,14 @@ export default function FeaturesStrip() {
         </AnimateIn>
 
         {/* Cards */}
-        <StaggerContainer className="mt-10 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.15} delay={0.2}>
+        <StaggerContainer className="mt-8 grid items-start gap-4 sm:mt-10 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.15} delay={0.2}>
           {features.map((feature, i) => {
             const isOpen = activeIndex === i;
 
             return (
               <StaggerItem key={feature.title}>
                 <CardSpotlight
-                  className={`cursor-pointer rounded-2xl border bg-white/90 backdrop-blur-sm p-6 transition-all duration-500 ${
+                  className={`cursor-pointer rounded-2xl border bg-white/90 backdrop-blur-sm p-4 sm:p-6 transition-all duration-500 ${
                     isOpen
                       ? "border-accent/40 shadow-2xl shadow-accent/10 ring-1 ring-accent/20"
                       : "border-neutral-200/60 shadow-md shadow-neutral-200/30 hover:shadow-xl hover:border-accent/20"

@@ -52,14 +52,14 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-gradient-to-b from-neutral-50 to-neutral-100/50 py-16 sm:py-24">
+    <section id="faq" className="relative overflow-hidden bg-gradient-to-b from-neutral-50 to-neutral-100/50 py-12 sm:py-16 md:py-24">
       {/* Background decoration */}
       <div className="pointer-events-none absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-5">
+        <div className="grid gap-8 sm:gap-12 md:grid-cols-5">
           {/* Left — header + CTA */}
-          <AnimateIn direction="left" className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start">
+          <AnimateIn direction="left" className="md:col-span-2 md:sticky md:top-24 md:self-start">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-primary uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               FAQ
@@ -112,7 +112,7 @@ export default function FAQ() {
           </AnimateIn>
 
           {/* Right — questions */}
-          <AnimateIn direction="right" delay={0.15} className="space-y-3 lg:col-span-3">
+          <AnimateIn direction="right" delay={0.15} className="space-y-3 md:col-span-3">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
@@ -128,7 +128,7 @@ export default function FAQ() {
                 >
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between px-6 py-5 text-left"
+                    className="flex w-full items-center justify-between px-4 py-4 text-left sm:px-6 sm:py-5"
                     onClick={() => toggle(index)}
                     aria-expanded={isOpen}
                   >

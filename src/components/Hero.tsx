@@ -5,9 +5,94 @@ import { motion } from "framer-motion";
 import DashboardMockup from "./DashboardMockup";
 import HeroDecor from "./HeroDecor";
 
+/* Custom animated icon components */
+function CyberShieldIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#16a34a" />
+          <stop offset="100%" stopColor="#22d3ee" />
+        </linearGradient>
+      </defs>
+      <path d="M12 2L3 7v5c0 5.25 3.83 10.17 9 11.38C17.17 22.17 21 17.25 21 12V7l-9-5z" stroke="url(#cyber-grad)" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
+      <path d="M12 2L3 7v5c0 5.25 3.83 10.17 9 11.38C17.17 22.17 21 17.25 21 12V7l-9-5z" fill="url(#cyber-grad)" opacity="0.15" />
+      <path d="M9 12l2 2 4-4" stroke="url(#cyber-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="12" r="9" stroke="url(#cyber-grad)" strokeWidth="0.5" opacity="0.3" strokeDasharray="2 3" />
+    </svg>
+  );
+}
+
+function AutoProctoringIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="proctor-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#8b5cf6" />
+          <stop offset="100%" stopColor="#06b6d4" />
+        </linearGradient>
+      </defs>
+      {/* Eye outer */}
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="url(#proctor-grad)" strokeWidth="1.5" fill="none" />
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="url(#proctor-grad)" opacity="0.1" />
+      {/* Iris */}
+      <circle cx="12" cy="12" r="3.5" stroke="url(#proctor-grad)" strokeWidth="1.5" fill="none" />
+      <circle cx="12" cy="12" r="1.5" fill="url(#proctor-grad)" />
+      {/* AI scan lines */}
+      <path d="M4 4l3 3M20 4l-3 3M4 20l3-3M20 20l-3-3" stroke="url(#proctor-grad)" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+      {/* Pulse ring */}
+      <circle cx="12" cy="12" r="8" stroke="url(#proctor-grad)" strokeWidth="0.5" opacity="0.3" strokeDasharray="3 2" />
+    </svg>
+  );
+}
+
+function HemisIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hemis-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0ea5e9" />
+          <stop offset="100%" stopColor="#16a34a" />
+        </linearGradient>
+      </defs>
+      {/* Connection nodes */}
+      <circle cx="6" cy="6" r="2" fill="url(#hemis-grad)" opacity="0.9" />
+      <circle cx="18" cy="6" r="2" fill="url(#hemis-grad)" opacity="0.9" />
+      <circle cx="6" cy="18" r="2" fill="url(#hemis-grad)" opacity="0.9" />
+      <circle cx="18" cy="18" r="2" fill="url(#hemis-grad)" opacity="0.9" />
+      <circle cx="12" cy="12" r="2.5" stroke="url(#hemis-grad)" strokeWidth="1.5" fill="url(#hemis-grad)" opacity="0.8" />
+      {/* Connection lines */}
+      <path d="M6 6l6 6m6-6l-6 6m-6 6l6-6m6 6l-6-6" stroke="url(#hemis-grad)" strokeWidth="1" opacity="0.5" />
+      {/* Sync arrows */}
+      <path d="M9 3h6M9 21h6" stroke="url(#hemis-grad)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+      <path d="M3 9v6M21 9v6" stroke="url(#hemis-grad)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+      {/* Outer ring */}
+      <rect x="1.5" y="1.5" width="21" height="21" rx="5" stroke="url(#hemis-grad)" strokeWidth="0.7" opacity="0.3" />
+    </svg>
+  );
+}
+
+const heroFeatures = [
+  {
+    icon: CyberShieldIcon,
+    title: "Kiberxavfsizlik xulosasi",
+    desc: "Har bir imtihon uchun avtomatik xavfsizlik hisoboti",
+  },
+  {
+    icon: AutoProctoringIcon,
+    title: "AutoProctoring",
+    desc: "AI asosida to'liq avtomatik nazorat",
+  },
+  {
+    icon: HemisIcon,
+    title: "HEMIS integratsiya",
+    desc: "Davlat tizimi bilan real-time sinxron",
+  },
+];
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32">
+    <section className="relative overflow-hidden bg-primary pt-28 pb-16 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32">
       {/* ===== SVG circuit / network pattern ===== */}
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.07]"
@@ -182,6 +267,34 @@ export default function Hero() {
                   className="transition-transform group-hover:translate-x-1"
                 />
               </a>
+            </motion.div>
+
+            {/* 3 ta asosiy xususiyat */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.65 }}
+              className="mt-10 grid gap-3 sm:grid-cols-3"
+            >
+              {heroFeatures.map((feature, i) => (
+                <a
+                  key={feature.title}
+                  href="#key-features"
+                  className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm transition-all hover:border-accent/30 hover:bg-white/10"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/10 group-hover:ring-accent/30 transition-all">
+                    <feature.icon />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">
+                      {feature.title}
+                    </p>
+                    <p className="mt-0.5 text-xs text-neutral-400">
+                      {feature.desc}
+                    </p>
+                  </div>
+                </a>
+              ))}
             </motion.div>
           </div>
 

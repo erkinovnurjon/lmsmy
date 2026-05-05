@@ -47,21 +47,21 @@ function MarqueeRow({
       {[0, 1].map((copy) => (
         <div
           key={copy}
-          className={`flex shrink-0 items-center gap-8 pr-8 ${animationClass} group-hover:[animation-play-state:paused]`}
+          className={`flex shrink-0 items-center gap-4 pr-4 sm:gap-8 sm:pr-8 ${animationClass} group-hover:[animation-play-state:paused]`}
           style={{ animationDuration: `${speed}s` }}
           aria-hidden={copy === 1}
         >
           {items.map((partner) => (
             <div
               key={partner.name}
-              className="flex h-24 w-64 shrink-0 items-center gap-3 rounded-xl bg-white/95 px-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/10"
+              className="flex h-20 w-48 shrink-0 items-center gap-2.5 rounded-xl bg-white/95 px-3 shadow-md backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/10 sm:h-24 sm:w-56 sm:gap-3 sm:px-4 md:w-64"
             >
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 width={56}
                 height={56}
-                className="h-14 w-14 shrink-0 object-contain"
+                className="h-10 w-10 shrink-0 object-contain sm:h-14 sm:w-14"
               />
               <span className="text-xs font-semibold leading-tight text-gray-800">
                 {partner.name}

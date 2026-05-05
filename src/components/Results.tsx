@@ -61,7 +61,7 @@ const testimonials = [
 
 export default function Results() {
   return (
-    <section id="results" className="relative overflow-hidden bg-gradient-to-b from-neutral-50 to-white py-16 sm:py-24">
+    <section id="results" className="relative overflow-hidden bg-gradient-to-b from-neutral-50 to-white py-12 sm:py-16 md:py-24">
       {/* Background decoration */}
       <div className="pointer-events-none absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-accent/3 blur-[150px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px]" />
@@ -84,10 +84,10 @@ export default function Results() {
         </AnimateIn>
 
         {/* Stats grid */}
-        <StaggerContainer className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1} delay={0.1}>
+        <StaggerContainer className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 md:grid-cols-4" stagger={0.1} delay={0.1}>
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
-              <CardSpotlight className="group rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-6 shadow-md shadow-neutral-200/30">
+              <CardSpotlight className="group rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-4 sm:p-6 shadow-md shadow-neutral-200/30">
                 <div className="icon-float">
                   <div className="icon-float-target flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 transition-all duration-500 group-hover:from-accent/15 group-hover:to-accent/5 group-hover:shadow-md group-hover:shadow-accent/10">
                     <stat.icon
@@ -97,7 +97,7 @@ export default function Results() {
                   </div>
                 </div>
                 <motion.div
-                  className="mt-4 text-4xl font-extrabold text-gradient-accent"
+                  className="mt-3 text-2xl font-extrabold text-gradient-accent sm:mt-4 sm:text-4xl"
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   viewport={{ once: false, margin: "-50px" }}
@@ -122,11 +122,11 @@ export default function Results() {
             <h3 className="text-center text-lg font-bold text-neutral-900">
               OTMlar nima deydi
             </h3>
-            <StaggerContainer className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.12}>
+            <StaggerContainer className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.12}>
               {testimonials.map((t) => (
                 <StaggerItem key={t.org}>
                   <CardSpotlight
-                    className="flex h-full flex-col rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-6 shadow-md shadow-neutral-200/30"
+                    className="flex h-full flex-col rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-4 sm:p-6 shadow-md shadow-neutral-200/30"
                     spotlightColor="rgba(30, 58, 95, 0.06)"
                   >
                     <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent/8">

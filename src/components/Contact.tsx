@@ -22,15 +22,15 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section id="contact" className="relative overflow-hidden bg-white py-12 sm:py-16 md:py-24">
       {/* Background decorations */}
       <div className="pointer-events-none absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-accent/3 blur-[150px]" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-primary/3 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-5">
+        <div className="grid gap-8 sm:gap-12 md:grid-cols-5">
           {/* Left — info */}
-          <AnimateIn direction="left" className="lg:col-span-2">
+          <AnimateIn direction="left" className="md:col-span-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-accent uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               Bog&apos;lanish
@@ -87,7 +87,7 @@ export default function Contact() {
           </AnimateIn>
 
           {/* Right — form */}
-          <AnimateIn direction="right" delay={0.15} className="lg:col-span-3">
+          <AnimateIn direction="right" delay={0.15} className="md:col-span-3">
             <div className="rounded-2xl border border-neutral-200/60 bg-white/90 backdrop-blur-sm p-6 shadow-xl shadow-neutral-200/40 sm:p-8">
               {submitted ? (
                 <motion.div

@@ -25,7 +25,43 @@ const chartPath = chartPoints
   })
   .join(" ");
 
-export default function DashboardMockup() {
+/* ── Mobile compact version ── */
+function MobileDashboard() {
+  return (
+    <div className="lg:hidden">
+      <div className="grid grid-cols-3 gap-2.5">
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+            className={`rounded-xl border p-3 text-center ${
+              stat.accent
+                ? "border-accent/25 bg-accent/10"
+                : "border-white/10 bg-white/5"
+            }`}
+          >
+            <stat.icon
+              size={18}
+              className={`mx-auto ${stat.accent ? "text-accent" : "text-white/50"}`}
+            />
+            <div className="mt-1.5 text-xl font-bold leading-none text-white">
+              {stat.value}
+            </div>
+            <div className="mt-1 text-[11px] text-white/50">{stat.label}</div>
+            {stat.trend && (
+              <div className="mt-0.5 text-[10px] font-medium text-accent">{stat.trend}</div>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── Desktop full dashboard ── */
+function DesktopDashboard() {
   return (
     <div className="relative hidden lg:block">
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0c1e35] shadow-2xl shadow-black/40">
@@ -40,7 +76,7 @@ export default function DashboardMockup() {
         </div>
 
         <div className="p-4 space-y-4">
-          {/* Sidebar hint + header */}
+          {/* Header */}
           <div className="flex items-center justify-between">
             <div className="text-xs font-semibold text-white/60">
               Boshqaruv paneli
@@ -51,7 +87,7 @@ export default function DashboardMockup() {
             </div>
           </div>
 
-          {/* Stat cards with stagger animation */}
+          {/* Stat cards */}
           <div className="grid grid-cols-3 gap-2.5">
             {stats.map((stat, i) => (
               <motion.div
@@ -102,15 +138,9 @@ export default function DashboardMockup() {
               className="h-14 w-full"
               preserveAspectRatio="none"
             >
-              {/* Grid lines */}
               <line x1="0" y1="25" x2="200" y2="25" stroke="white" strokeOpacity="0.06" />
               <line x1="0" y1="50" x2="200" y2="50" stroke="white" strokeOpacity="0.06" />
-              {/* Area fill */}
-              <path
-                d={`${chartPath} L200,50 L0,50 Z`}
-                fill="url(#chartGradient)"
-              />
-              {/* Line */}
+              <path d={`${chartPath} L200,50 L0,50 Z`} fill="url(#chartGradient)" />
               <motion.path
                 d={chartPath}
                 fill="none"
@@ -122,24 +152,14 @@ export default function DashboardMockup() {
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
               />
-              {/* End dot */}
               <motion.circle
-                cx="200"
-                cy={50 - (89 / 100) * 50}
-                r="2.5"
-                fill="#16a34a"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
+                cx="200" cy={50 - (89 / 100) * 50} r="2.5" fill="#16a34a"
+                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: 2.3 }}
               />
               <motion.circle
-                cx="200"
-                cy={50 - (89 / 100) * 50}
-                r="5"
-                fill="#16a34a"
-                fillOpacity="0.2"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
+                cx="200" cy={50 - (89 / 100) * 50} r="5" fill="#16a34a" fillOpacity="0.2"
+                initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: 2.3 }}
               />
               <defs>
@@ -190,9 +210,18 @@ export default function DashboardMockup() {
         <div className="animate-shimmer pointer-events-none absolute inset-0 rounded-2xl" />
       </div>
 
-      {/* Glow effect - enhanced */}
+      {/* Glow effect */}
       <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-accent/8 blur-3xl" />
       <div className="pointer-events-none absolute -inset-8 -z-20 rounded-3xl bg-primary-light/10 blur-[60px]" />
     </div>
+  );
+}
+
+export default function DashboardMockup() {
+  return (
+    <>
+      <MobileDashboard />
+      <DesktopDashboard />
+    </>
   );
 }

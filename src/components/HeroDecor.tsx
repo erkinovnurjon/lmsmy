@@ -5,7 +5,7 @@
 export default function HeroDecor() {
   return (
     <svg
-      className="pointer-events-none absolute right-0 top-0 h-full w-[480px] opacity-[0.22] sm:w-[560px] lg:w-[680px]"
+      className="pointer-events-none absolute right-0 top-0 hidden h-full opacity-[0.22] sm:block sm:w-[400px] md:w-[520px] lg:w-[680px]"
       viewBox="0 0 680 900"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
